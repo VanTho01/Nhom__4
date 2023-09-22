@@ -1,21 +1,5 @@
 import numpy as np
 
-def Input1():
-    #so phuong trinh
-    sopt = IntVar()
-    return sopt.get()
-def Input2():
-    #so an 
-    soan = IntVar()
-    return soan.get()
-def test_input(sopt, soan):
-    if (sopt != soan or sopt < 0 or soan < 0):
-            print("Error! Nhap lai!")
-            sopt = Input1()
-            soan = Input2()
-            test_input(sopt, soan)
-    else: 
-        return sopt, soan
 def Input3(sopt, soan):
         A = np.zeros((sopt, soan), dtype = float)
         B = np.zeros((sopt, 1), dtype = float)
@@ -113,7 +97,6 @@ def clear():
     Label(win,background = 'purple', width = 180*sopt.get(), height = 20).place( x = 240, y = 100)
 A, B = create()
 def calculate():
-    print(A)
     if (np.linalg.det(A) != 0):
         X = np.dot(np.linalg.inv(A), B)
         for i in range(sopt.get()):
