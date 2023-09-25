@@ -4,7 +4,7 @@ import soundfile as sfile
 from pydub.playback import play
 import time
 
-#xu ly am thanh
+#xu ly tep am thanh
 def convert_to_decibel(arr):
             ref = 1
             if arr != 0:
