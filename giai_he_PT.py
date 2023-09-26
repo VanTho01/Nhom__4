@@ -19,7 +19,7 @@ def calculate(A, B):
         else: 
             calculate(A, B)
     except:
-        print("Error!")
+        print("Error!!")
         Input3(A, B)
         calculate()
 
