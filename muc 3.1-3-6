@@ -1,0 +1,43 @@
+#phan tram so sinh vien dat cua mon hoc
+def phan_tram_dat(in_data):
+  sv_dat=[]
+  for i in range(1,9):
+    n=np.array(in_data[i, :])
+    sv_dat.append(np.sum(n[3:10]))
+  phan_tram_sv_dat=np.sum(sv_dat)/sum_sv(in_data)
+  return f'{round((phan_tram_sv_dat*100),2)}%'
+#tim lop co so sv dat >=D nhieu nhat/it nhat
+def Max_Min_pass_class(in_data):
+  sv_dat=[]
+  option=['Max','Min']
+  lop2=[]
+  for i in range(1,9):
+    n=np.array(in_data[i, :])
+    sv_dat.append(np.sum(n[3:10]))
+  lop1=in_data[:, 0]
+  a1=sv_dat.index(max(sv_dat))
+  lop2.append(lop1[a1])
+  a2=sv_dat.index(min(sv_dat))
+  lop2.append(lop1[a2])
+  Dict1=dict(zip(option,lop2))
+  return Dict1
+#tim TBC  so sv dat diem A,B cua ca 9 lop
+def tbc_loai_diem(in_data):
+  Text="Loai A,Loai B+Loai B,Loai C+Loai C+Loai D+Loai D+Loai F"
+  loai_diem1=Text.split(",")
+  tbc=[]
+  for i in range(3,11):
+    tbc.append(round(np.mean((in_data[:, i])),0))
+  mydict=dict(zip(loai_diem1,tbc))
+  data=mydict
+  categories=list(data.keys())
+  values=list(data.values())
+  plt.figure(2)
+  plt.bar(categories, values)
+  plt.xlabel('Loại điểm')
+  plt.ylabel('Số lượng sinh viên')
+  plt.title('Biểu đồ thể hiện \ntrung bình sinh viên đạt từng loại điểm của 9 lớp')
+  #plt.show()
+  plt.savefig('muc_7.png')
+  return mydict
+    
