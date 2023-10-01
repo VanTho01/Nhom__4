@@ -22,6 +22,17 @@ def tong_sv_type(in_data):
     for i in range(3, 11):
         tong_Ldiem.append(np.sum(in_data[:, i]))
     result = dict(zip(loai_diem, tong_Ldiem))
+    data = result
+    categories = list(data.keys())
+    values = list(data.values())
+    plt.figure(1)
+    plt.bar(categories, values)
+    plt.xlabel('Loại điểm')
+    plt.ylabel('Số lượng')
+    plt.title('Biểu đồ thể hiện số lượng từng loại điểm')
+    plt.yticks(np.arange(0, 100, 5))
+    plt.savefig('muc_2.png')
+    #plt.show()
     return result
 
 #muc 3.1: Phần trăm số SV đạt của môn học
