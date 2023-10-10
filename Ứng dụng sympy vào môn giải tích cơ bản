@@ -21,5 +21,31 @@ def main():
     import sympy.plotting as syp
     syp.plot(f, (x, -5, 5), title='Đồ thị hàm số f(x)')
 
+    # Tính đạo hàm của hàm hợp
+    g = x**2
+    h = 2*x - 1
+    hamhop = hamhop(g, h, x)
+    print("Đạo hàm của hàm hợp (g o h)(x):", hamhop)
+
+    # Tính giới hạn của hàm lượng giác
+    gioihan = gioihan_luonggiac(f, x, 0)
+    print("Giới hạn của hàm lượng giác tại x = 0:", gioihan)
+def calculate_definite_integral(f, x):
+    intervals = [(0, 2), (2, 4), (4, 6)]  # Define intervals
+    for interval in intervals:
+        a, b = interval
+        definite_integral = sym.integrate(f, (x, a, b))
+        print(f"Tích phân của f(x) từ {a} đến {b}:", definite_integral)
+def hamhop(g, h, x):
+    derivative_g = sym.diff(g, x)
+    derivative_h = sym.diff(h, x)
+    ham_hop = derivative_g.subs(x, h) * derivative_h
+    return ham_hop
+
+def gioihan_luonggiac(f, x, value):
+   
+    lgioihan = sym.limit(f, x, value)
+    return gioihan
+
 if __name__ == "__main__":
     main()
