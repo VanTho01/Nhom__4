@@ -5,16 +5,11 @@ from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import filedialog, messagebox
 
-
 win = Tk()
 win.title('Make report 2.0')
-win.geometry('900x700')
+win.geometry('800x700')
+win.resizable(False, False)
 win.configure(bg = 'Indigo')
-""" image = Image.open("back_ground.jpg")
-photo = ImageTk.PhotoImage(image)
-label = Label(win, image=photo, width = 1500, height = 00)
-label.pack(fill=BOTH, expand=True)
-label.bind("<Configure>", lambda e: label.config(image=photo)) """
 
 def xu_ly_du_lieu():
     file_name = input4.get("1.0", "end").strip()
